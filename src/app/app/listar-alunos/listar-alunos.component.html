@@ -1,0 +1,25 @@
+<br>
+<h2 class="subtitle" style="text-align: center;">Lista de alunos cadastrados</h2>
+<br>
+<div class="container.is-max-widescreen">
+    <div class="container">
+        <table class="table is-hoverable">
+            <thead>
+                <td>Nome</td>
+                <td>Opções</td>
+            </thead>
+            <tbody>
+                <tr *ngFor="let aluno of listaAlunos">
+                    <td>{{aluno.name}}</td>
+                    <td><button class="button is-primary"><a routerLink="" style="color: aliceblue;">Ver
+                                perfil</a></button>
+                    </td>
+                    <td><button class="button is-warning"><a routerLink="" style="color: aliceblue;">Editar</a></button>
+                    </td>
+                    <td><button class="button is-danger"><a routerLink="" style="color: aliceblue;">Deletar</a></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
