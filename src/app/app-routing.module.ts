@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AlunoComponent } from './aluno/aluno.component';
 import { CadastrarAlunoComponent } from './cadastrar-aluno/cadastrar-aluno.component';
+import { EditarAlunoComponent } from './editar-aluno/editar-aluno.component';
 import { ExcluirAlunoComponent } from './excluir-aluno/excluir-aluno.component';
 import { ListarAlunosComponent } from './listar-alunos/listar-alunos.component';
 
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: "about", redirectTo: "/alunos", pathMatch: "prefix" },
   { path: "detalhes/:name", component: AlunoComponent },
   { path: "cadastrar", component: CadastrarAlunoComponent },
+  { path: "editar/:id", component: EditarAlunoComponent },
   { path: "excluir/:id", component: ExcluirAlunoComponent },
   { path: "", redirectTo: "/alunos", pathMatch: "full" },
   { path: '**', redirectTo: '/alunos' }

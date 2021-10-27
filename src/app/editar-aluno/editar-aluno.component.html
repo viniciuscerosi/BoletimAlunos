@@ -1,1 +1,12 @@
-<p>editar-aluno works!</p>
+<form class="register_form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <label class="label">
+        <input class="input" formControlName="name" placeholder="Nome do aluno">
+    </label>
+    <label class="label">
+        <input class="input" formControlName="age" placeholder="Idade do aluno">
+    </label>
+    <label class="label">
+        <input class="input" formControlName="url" placeholder="URL da imagem do aluno">
+    </label>
+    <input class="button is-link" type="submit" value="Editar">
+</form>

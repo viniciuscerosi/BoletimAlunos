@@ -35,4 +35,12 @@ export class DatabaseService {
     this.listaAlunos.splice(this.listaAlunos.findIndex(({ id }) => id == idAluno), 1);
     return this;
   }
+
+  editAluno(idAluno: String): Aluno {
+    for (let aluno of this.listaAlunos) {
+      if (aluno.id == idAluno) {
+        return aluno;
+      }
+    }
+  }
 }
