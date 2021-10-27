@@ -28,6 +28,11 @@ export class DatabaseService {
       return false;
     }
     this.listaAlunos.push(aluno);
-    return true;
+    return this;
+  }
+
+  delAluno(idAluno: String): DatabaseService {
+    this.listaAlunos.splice(this.listaAlunos.findIndex(({ id }) => id == idAluno), 1);
+    return this;
   }
 }

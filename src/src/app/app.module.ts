@@ -5,20 +5,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AlunoComponent } from './aluno/aluno.component';
 import { ListarAlunosComponent } from './listar-alunos/listar-alunos.component';
-import { FormsModule } from '@angular/forms';
-import { AdicionarAlunosComponent } from './adicionar-alunos/adicionar-alunos.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { EditarAlunoComponent } from './editar-aluno/editar-aluno.component';
+import { ExcluirAlunoComponent } from './excluir-aluno/excluir-aluno.component';
+import { CadastrarAlunoComponent } from './cadastrar-aluno/cadastrar-aluno.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AlunoComponent,
     ListarAlunosComponent,
-    AdicionarAlunosComponent
+    EditarAlunoComponent,
+    ExcluirAlunoComponent,
+    CadastrarAlunoComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
