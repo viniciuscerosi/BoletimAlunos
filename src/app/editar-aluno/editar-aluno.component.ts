@@ -30,12 +30,12 @@ export class EditarAlunoComponent implements OnInit {
     url: new FormControl(''),
   });
 
-  onSubmit() {
+  /*onSubmit() {
     this.aluno = this.registerForm.value;
     //this.aluno.id = uuidv4();
     this.dataservice.editAluno(this.aluno);
     this.registerForm.reset();
     this.local.back();
-  }
+  }*/
 
 }
