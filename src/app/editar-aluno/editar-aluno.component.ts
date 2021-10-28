@@ -1,9 +1,10 @@
 import { Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DatabaseService } from '../database.service';
-import { FormControl, FormGroup } from '@angular/forms';
 import { Aluno } from '../aluno.model';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Alert } from 'selenium-webdriver';
 
 
 @Component({
@@ -13,15 +14,12 @@ import { Aluno } from '../aluno.model';
 })
 export class EditarAlunoComponent implements OnInit {
 
-  constructor(private dataservice: DatabaseService, private route: ActivatedRoute,
-    private acPage: Location) { }
-
-  ngOnInit(): void {
-    this.dataservice.editAluno(this.route.snapshot.paramMap.get("id"));
-    //this.acPage.back();
-  }
-
+  //@Input() alunoParaExibir: Aluno;
   aluno: Aluno;
+
+  constructor(private dataservice: DatabaseService, private route: ActivatedRoute,
+    private acPage: Location) {
+  }
 
   registerForm = new FormGroup({
     id: new FormControl(''),
@@ -30,12 +28,22 @@ export class EditarAlunoComponent implements OnInit {
     url: new FormControl(''),
   });
 
-  /*onSubmit() {
+  ngOnInit(): void {
+    this.aluno = this.dataservice.getAlunoById(this.route.snapshot.paramMap.get("id"))
+    //this.dataservice.editAluno(this.route.snapshot.paramMap.get("id"));
+    this.registerForm.controls['id'].setValue(this.aluno.id);
+    this.registerForm.controls['name'].setValue(this.aluno.name);
+    this.registerForm.controls['age'].setValue(this.aluno.age);
+    this.registerForm.controls['url'].setValue(this.aluno.url);
+    //this.acPage.back();
+  }
+
+
+  onSubmit() {
     this.aluno = this.registerForm.value;
-    //this.aluno.id = uuidv4();
     this.dataservice.editAluno(this.aluno);
     this.registerForm.reset();
-    this.local.back();
-  }*/
+    this.acPage.back();
+  }
 
 }

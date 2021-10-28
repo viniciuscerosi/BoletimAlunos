@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Aluno } from './aluno.model';
+import { AlunoComponent } from './aluno/aluno.component';
 import { listaAlunoCadastrados } from './listaAlunos';
 
 @Injectable({
@@ -8,6 +9,8 @@ import { listaAlunoCadastrados } from './listaAlunos';
 export class DatabaseService {
 
   listaAlunos: Aluno[] = listaAlunoCadastrados;
+
+  aluno: Aluno;
 
   constructor() { }
 
@@ -18,6 +21,14 @@ export class DatabaseService {
   getAlunoByName(nome: String): Aluno {
     for (let aluno of this.listaAlunos) {
       if (aluno.name == nome) {
+        return aluno;
+      }
+    }
+  }
+
+  getAlunoById(idAluno: String): Aluno {
+    for (let aluno of this.listaAlunos) {
+      if (aluno.id == idAluno) {
         return aluno;
       }
     }
@@ -36,11 +47,9 @@ export class DatabaseService {
     return this;
   }
 
-  editAluno(idAluno: String): Aluno {
-    for (let aluno of this.listaAlunos) {
-      if (aluno.id == idAluno) {
-        return aluno;
-      }
-    }
+  editAluno(aluno: Aluno): DatabaseService {
+    this.listaAlunos[this.listaAlunos.findIndex(a => a.id
+      == aluno.id)] = aluno;
+    return this;
   }
 }

@@ -1,24 +1,24 @@
 <br>
-<h2 class="subtitle" style="text-align: center;"><b> Alunos cadastrados</b> </h2>
+<h2 class="subtitle" style="text-align: center;">Lista de alunos cadastrados</h2>
 <br>
-<div class="container.is-max-widescreen" style="text-align: center;" >
-    <div class="container"  class="columns is-centered is-vcentered is-mobile" >
-        <table class="table" >
+<div class="container.is-max-widescreen">
+    <div class="container">
+        <table class="table is-hoverable">
             <thead>
-                <div class="columns is-centered is-vcentered is-mobile"></div>
-                <td><b>Aluno</b></td>
-                <td><b>Opções</b></td>
+                <td>Nome</td>
+                <td>Opções</td>
             </thead>
             <tbody>
                 <tr *ngFor="let aluno of listaAlunos">
-                    <td><b> {{aluno.name}}</b> </td>
-                    <td><button class="button is-primary"><a routerLink="" style="color: rgb(1, 2, 3);">Visualizar
-                                Aluno</a></button>
+                    <td>{{aluno.name}}</td>
+                    <td><span class="button is-primary" routerLink="/detalhes/{{aluno.id}}"
+                            style="color: aliceblue;">Ver
+                            perfil</span>
                     </td>
                     <td><span class="button is-warning" routerLink="/editar/{{aluno.id}}"
-                            style="color: rgb(1, 2, 3);">Editar Aluno</span>
+                            style="color: aliceblue;">Editar</span>
                     </td>
-                    <td><span class="button is-danger" routerLink="/excluir/{{aluno.id}}" style="color: rgb(1, 2, 3);">Deletar Aluno</span>
+                    <td><span class="button is-danger" routerLink="/excluir/{{aluno.id}}">Deletar</span>
                     </td>
                 </tr>
             </tbody>

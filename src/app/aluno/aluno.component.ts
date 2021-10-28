@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Aluno } from '../aluno.model';
@@ -10,7 +11,7 @@ import { DatabaseService } from '../database.service';
 })
 export class AlunoComponent implements OnInit {
 
-  @Input() alunoParaExibir: Aluno;
+  alunoParaExibir: Aluno;
 
   constructor(private database: DatabaseService, private rota: ActivatedRoute, private local: Location) { }
 
@@ -19,8 +20,8 @@ export class AlunoComponent implements OnInit {
   }
 
   getAluno(): void {
-    let nomealuno = this.rota.snapshot.paramMap.get("nome");
-    this.alunoParaExibir = this.database.getAlunoByName(nomealuno);
+    let idAluno = this.rota.snapshot.paramMap.get("id");
+    this.alunoParaExibir = this.database.getAlunoById(idAluno);
   }
 
 }

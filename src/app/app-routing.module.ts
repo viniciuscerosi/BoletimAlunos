@@ -9,7 +9,7 @@ import { ListarAlunosComponent } from './listar-alunos/listar-alunos.component';
 const routes: Routes = [
   { path: "alunos", component: ListarAlunosComponent },
   { path: "about", redirectTo: "/alunos", pathMatch: "prefix" },
-  { path: "detalhes/:name", component: AlunoComponent },
+  { path: "detalhes/:id", component: AlunoComponent },
   { path: "cadastrar", component: CadastrarAlunoComponent },
   { path: "editar/:id", component: EditarAlunoComponent },
   { path: "excluir/:id", component: ExcluirAlunoComponent },
